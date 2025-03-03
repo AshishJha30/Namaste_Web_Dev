@@ -35,30 +35,62 @@
 // printMyName();
 
 
-// Ep - 2
-let name = {
-    firstname: "Ashish",
-    lastname: "Jha",
-}
+// // Ep - 2
+// let name = {
+//     firstname: "Ashish",
+//     lastname: "Jha",
+// }
 
-let printName = function(city, state, country) {
-    console.log(this.firstname + " " + this.lastname + " " + city + ", " + state + ", " + country);
-}
+// let printName = function(city, state, country) {
+//     console.log(this.firstname + " " + this.lastname + " " + city + ", " + state + ", " + country);
+// }
 
-let printMyName = printName.bind(name, "Ghz");
-printMyName("UP", "India")
+// let printMyName = printName.bind(name, "Ghz");
+// printMyName("UP", "India")
 
-Function.prototype.mybind = function(...args) {
+// Function.prototype.mybind = function(...args) {
 
-    // this -> printName   this m printName function aajayega
-    let obj = this,
-    params = args.slice(1);
-    return function(...args2) {
-        // printName();
-        obj.apply(args[0], [...params, ...args2]);
+//     // this -> printName   this m printName function aajayega
+//     let obj = this,
+//     params = args.slice(1);
+//     return function(...args2) {
+//         // printName();
+//         obj.apply(args[0], [...params, ...args2]);
+//     }
+// }
+
+// let printMyName2 = printName.mybind(name, "Ghz");
+// printMyName2("UP", "India");
+// // console.log(printMyName2)
+
+// Ep - 3 Currying (Making a copy of another function by presetting some values)
+
+// Using Bind method
+// let multiply = function (x, y) {
+//     console.log(x * y);
+// }
+
+// // It's like 
+// let multiply = function (x, y) {
+//     x = 2;
+//     console.log(x * y);
+// }
+
+// Using Closure method
+let multiplyClosure = function(x) {
+    return function(y) {
+        console.log(x * y)
     }
 }
 
-let printMyName2 = printName.mybind(name, "Ghz");
-printMyName2("UP", "India");
-// console.log(printMyName2)
+// let multiplyByTwo = multiply.bind(this, 2);
+// multiplyByTwo(4);
+
+// let multipleByThree = multiply.bind(this, 3);
+// multipleByThree(4);
+
+let multiplyByTwo = multiplyClosure(2);
+multiplyByTwo(4);
+
+let multiplyByThree = multiplyClosure(3);
+multiplyByThree(10);
