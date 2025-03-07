@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+    <style>
+        div{
+            min-width: 100px;
+            min-height: 100px;
+            margin: 15px;
+            padding: 30px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Event Delegation  -->
+    <div id="form">
+        <input type="text" id="name" data-uppercase>
+        <input type="text" id="address">
+        <input type="number" id="phone">
+    </div>
+    <!-- <div>
+        <ul id="category">
+            <li id="laptop">Laptop</li>
+            <li id="bag">Bag</li>
+            <li id="shoes">Shoes</li>
+        </ul>
+    </div> -->
+
+    <!-- BUbbling and Capturing 
+    <div id="grandParent">
+        <div id="parent">
+            <div id="child">
+
+            </div>
+        </div>
+    </div> -->
+    <script src="day3_Event_bubbling.js"></script>
+</body>
+</html>
